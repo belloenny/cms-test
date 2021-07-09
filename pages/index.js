@@ -21,7 +21,7 @@ export default function Home({ products }) {
               <Link href="/[slug]" as={`/${product.slug}`} styles={{ cursor: "pointer" }}>
                 <a className={styles.card}>
                   <h2>{product.name}</h2>
-                  <p>{product.seo.description}</p>
+                  
                   <img src={product.productPhoto.url[0]} height={200} width={300}/>
                 </a>
 
