@@ -43,14 +43,14 @@ collections:
         required: true
       - name: description
         label: Description
-        widget: string
-        required: false
+        widget: markdown
+        required: true
       - name: how to use
         label: Usage Description
         widget: string
         required: false
       - widget: object
-        name: product-photo
+        name: productPhoto
         label: Product Pic
         fields:
           - widget: image
