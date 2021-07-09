@@ -5,6 +5,7 @@ import styles from '../styles/Home.module.css'
 import { getProducts } from "../lib/api";
 
 export default function Home({products}) {
+  console.log(products);
   return (
     <div className={styles.container}>
       <Head>
