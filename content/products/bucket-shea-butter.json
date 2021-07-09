@@ -1,0 +1,26 @@
+{
+  "publishedAt": "2021-07-09T10:34:26.415Z",
+  "ec-product-type": "Physical",
+  "price": {
+    "unit": "KES",
+    "value": 199996
+  },
+  "name": "Bucket Shea Butter",
+  "featured": true,
+  "shippable": true,
+  "updatedAt": "2021-07-09T10:34:26.397Z",
+  "how to use": "just use the damn thing man",
+  "product-photo": {
+    "url": [
+      "https://ucarecdn.com/fab8a065-3a14-487b-b526-fdb69e943b94/"
+    ]
+  },
+  "createdAt": "2021-07-09T10:34:26.380Z",
+  "publishedDate": "2021-07-09T10:34:26.359Z",
+  "description": "<p>this is some shea butter in a bucket</p>",
+  "seo": {
+    "title": "Bucket of shea butter",
+    "description": "use the thing man",
+    "og:image": "https://ucarecdn.com/45f6799d-e98a-473a-bf78-8923dc901f01/"
+  }
+}
