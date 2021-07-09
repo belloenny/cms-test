@@ -1,11 +1,8 @@
 import Head from 'next/head'
-
-import { useEffect } from 'react'
 import styles from '../styles/Home.module.css'
 import { getProducts } from "../lib/api";
 
 export default function Home({products}) {
-  console.log(products);
   return (
     <div className={styles.container}>
       <Head>
@@ -16,7 +13,7 @@ export default function Home({products}) {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">{products[0].name}</a>
+          Welcome to <a href="https://nextjs.org">{products[1].name}</a>
         </h1>
 
         <p className={styles.description}>
@@ -24,8 +21,8 @@ export default function Home({products}) {
           <code className={styles.code}>pages/index.js</code>
         </p>
 
-        <div dangerouslySetInnerHTML={{ __html: products[0].description }} />
-        <img src={products[0].productPhoto.url[0]} height={90} /> 
+        <div dangerouslySetInnerHTML={{ __html: products[1].description }} />
+        <img src={products[1].productPhoto.url[0]} height={90} /> 
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
             <h2>Documentation &rarr;</h2>
