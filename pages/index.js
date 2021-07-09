@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import { getProducts } from "../lib/api";
-
-export default function Home({products}) {
+import Link from 'next/link'
+export default function Home({ products }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -13,68 +13,33 @@ export default function Home({products}) {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">{products[1].name}</a>
+         All Products Below
         </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div dangerouslySetInnerHTML={{ __html: products[1].description }} />
-        <img src={products[1].productPhoto.url[0]} height={90} /> 
         <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+          {
+            products.map(product => (
+              <Link href="/[slug]" as={`/${product.slug}`} styles={{ cursor: "pointer" }}>
+                <a className={styles.card}>
+                  <h2>{product.name}</h2>
+                  <p>{product.seo.description}</p>
+                  <img src={product.productPhoto.url[0]} height={200} width={300}/>
+                </a>
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+              </Link>
+            ))
+          }
           {/* {
             products[0].data.productPhoto.url.map(url => <img src={url}></img>)
           } */}
         </div>
       </main>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <img src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
     </div>
   )
 }
 
 export const getStaticProps = async () => {
   const { products } = await getProducts()
-  
+
   return { props: { products } };
 };

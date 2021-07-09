@@ -79,6 +79,7 @@
 
 .card {
   margin: 1rem;
+  cursor: pointer;
   padding: 1.5rem;
   text-align: left;
   color: inherit;
