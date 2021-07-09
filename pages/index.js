@@ -1,8 +1,11 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import { useEffect } from 'react'
 import styles from '../styles/Home.module.css'
+import { getProducts } from "../lib/api";
 
-export default function Home() {
+export default function Home({products}) {
+  useEffect(() => console.log(products),[])
   return (
     <div className={styles.container}>
       <Head>
@@ -13,7 +16,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Welcome to <a href="https://nextjs.org">{products[0].name}</a>
         </h1>
 
         <p className={styles.description}>
@@ -21,6 +24,8 @@ export default function Home() {
           <code className={styles.code}>pages/index.js</code>
         </p>
 
+        <div dangerouslySetInnerHTML={{ __html: products[0].description }} />
+        <img src={products[0].productPhoto.url[0]} height={90} /> 
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
             <h2>Documentation &rarr;</h2>
@@ -49,6 +54,9 @@ export default function Home() {
               Instantly deploy your Next.js site to a public URL with Vercel.
             </p>
           </a>
+          {/* {
+            products[0].data.productPhoto.url.map(url => <img src={url}></img>)
+          } */}
         </div>
       </main>
 
@@ -67,3 +75,9 @@ export default function Home() {
     </div>
   )
 }
+
+export const getStaticProps = async () => {
+  const { products } = await getProducts()
+  
+  return { props: { products } };
+};
