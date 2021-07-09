@@ -1,0 +1,25 @@
+{
+  "publishedAt": "2021-07-09T10:56:02.656Z",
+  "productPhoto": {
+    "url": [
+      "https://ucarecdn.com/d53f8037-62e3-4d4a-a9f7-9e9167892bab/"
+    ]
+  },
+  "ec-product-type": "Physical",
+  "price": {
+    "unit": "KES",
+    "value": 200000
+  },
+  "name": "Mark down test",
+  "shippable": true,
+  "updatedAt": "2021-07-09T10:56:02.638Z",
+  "how to use": "nothing here",
+  "createdAt": "2021-07-09T10:56:02.622Z",
+  "publishedDate": "2021-07-09T10:56:02.597Z",
+  "description": "\n\n# Ounjey Backend Server\nThis server is written in typescript and uses express and express-graphql to expose both rest and graphql apis for our clients to consume\n\n## Features included\n * Authentication (register, login, verify email, lost password, login as (assume identity))\n * Authorization (role-based access control with attribute filtering)\n * Event logging (logs activity stream of user events, search and filter log records)\n * Performance monitoring (logging process time per request to identify bottlenecks)\n * Security (token deny list, helmet, more to come...)\n * Email using Sendgrid transactional email\n * Docker Compose (rapid setup including database admin tools)\n * Database integrations (Postgres, Redis, Elasticsearch)\n * Graphql Interface\n * Containers (optionally build app in Docker container with multi-stage build)\n * Continuous Integration (CI config builds, lints, tests on push with CircleCI)\n * Flexible architecture (Dao layer allows adding future \"views\", EventEmitter allows CQRS-ES)\n * Strongly-typed codebase (written in Typescript)\n * Interactive API documentation using Swagger UI (Open API spec)\n\n\n# Usage (quick start)\n 1. clone the repo\n 2. `npm install`\n 3. make sure both .env and docker.env files are present before taking the next step\n 4. `docker-compose up`\n    * This will spin up Postgres, Elasticsearch, Kibana, and Redis, Mongodb\n    * To stop them, and remove local volumes: `docker-compose down -v`\n 5. run `npm run seed` to load test data in the database. make sure the docker contianer is still running before running this command\n 6. Start up app in developer mode (will watch and recompile for changes)\n    * `npm run dev`\n 7. Open browser tab to [Swagger UI Explorer](http://localhost:3000/api-docs) to explore API\n 7. Open browser tab to [Graphiql](http://localhost:3000/graphql) to explore the graphql API\n 8. Open browser tab to [Kibana](http://localhost:5601) for Elasticsearch Admin\n     * You will have to know a little about ES if you choose to use it\n\n# Testing\nThis app includes automated tests using **Supertest** and **Jest** to test routes, etc.\n * `npm test` or `npm run coverage`\n * NOTE: the Docker database must be running (see Step 5 above)\n * SEE: `__tests__` folders in application for test source code\n\n# Extending\nEvery DAO method should `emit` an event in an activity stream format as shown. For max flexibility,\nlike to disable writes and make the architecture CQRS, you can create a new handler in `utils/activity.helper.ts`.\n\n## Adding new services\nYou can follow along the commit history relating to the issues (closed) and see how, but a general idea is:\n 1. add a new folder (i.e. category) in the `src/services/` folder\n 2. if CRUD feature with database, copy `src/services/role/*` and find/replace to match new names\n 3. edit `src/config/data.test.ts` and add necessary test data and permissions for CRUD\n 5. edit `src/config/openapi.json` and add routes to documentation (if REST implementation)\n 6. if non-CRUD feature, add a new `src/config/event.ts` listener and be sure to `emit` within Dao methods\n    * this is key to support CQRS-ES architecture and scale to PubSub or message bus in future as needed\n\n\n\n\n\n# Contributing\nPlease write Issue or PR and I'll consider. Thanks!\n",
+  "seo": {
+    "title": "markdown test",
+    "description": "test",
+    "og:image": "https://ucarecdn.com/6ba196f2-7e24-4e44-877a-79150d89837f/"
+  }
+}
