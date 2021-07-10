@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export",
-    "postinstall": "npx prisma generate",
+    "postinstall": " npx prisma generate  --schema 'functions/prisma/schema.prisma'",
     "start": "next start",
     "lint": "next lint"
   },
