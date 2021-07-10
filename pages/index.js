@@ -18,7 +18,7 @@ export default function Home({ products }) {
         <div className={styles.grid}>
           {
             products.map(product => (
-              <Link href="/[slug]" as={`/${product.slug}`} styles={{ cursor: "pointer" }}>
+              <Link href="/[slug]" as={`/${product.slug}`} key={product.slug} styles={{ cursor: "pointer" }}>
                 <a className={styles.card}>
                   <h2>{product.name}</h2>
                   
@@ -28,9 +28,6 @@ export default function Home({ products }) {
               </Link>
             ))
           }
-          {/* {
-            products[0].data.productPhoto.url.map(url => <img src={url}></img>)
-          } */}
         </div>
       </main>
 

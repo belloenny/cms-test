@@ -1,0 +1,8 @@
+{
+  "version": 3,
+  "sources": ["../../../../../../Users/user/Desktop/cms-test/functions/users.ts"],
+  "sourceRoot": "/var/folders/1_/7t1qmrd93f38fm3khf6xdzy40000gn/T/tmp-33167-CcvmUxWZ9VhC",
+  "sourcesContent": ["import { PrismaClient } from '@prisma/client'\nimport { Handler } from \"@netlify/functions\";\nconst prisma = new PrismaClient()\n\nconst handler: Handler = async (event, context, callback) => {\n  try {\n    const users = await prisma.user.findMany({\n      include: { Post: true }\n    })\n    return {\n      statusCode: 200,\n      headers: { 'Content-Type': 'application/json' },\n      body: JSON.stringify(users)\n    }\n  } catch (error) {\n    console.error(error)\n    return {\n      statusCode: 500,\n      headers: { 'Content-Type': 'application/json' },\n      body: JSON.stringify(error)\n    }\n  }\n}\n\n\nexport { handler };"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA,oBAA6B;AAE7B,IAAM,SAAS,IAAI;AAEnB,IAAM,UAAmB,OAAO,OAAO,SAAS,aAAa;AAC3D,MAAI;AACF,UAAM,QAAQ,MAAM,OAAO,KAAK,SAAS;AAAA,MACvC,SAAS,EAAE,MAAM;AAAA;AAEnB,WAAO;AAAA,MACL,YAAY;AAAA,MACZ,SAAS,EAAE,gBAAgB;AAAA,MAC3B,MAAM,KAAK,UAAU;AAAA;AAAA,WAEhB,OAAP;AACA,YAAQ,MAAM;AACd,WAAO;AAAA,MACL,YAAY;AAAA,MACZ,SAAS,EAAE,gBAAgB;AAAA,MAC3B,MAAM,KAAK,UAAU;AAAA;AAAA;AAAA;",
+  "names": []
+}
